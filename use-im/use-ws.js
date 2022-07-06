@@ -21,7 +21,7 @@ export const useWs = ({ url, headers }) => {
   let pingTimer = null;
 
   const initialize = () => {
-    if (uni) {
+    if (typeof uni !== "undefined") {
       instance = uni.connectSocket({ url, complete: () => {} });
     } else {
       instance = webSocket.connectSocket({ url, complete: () => {} });
