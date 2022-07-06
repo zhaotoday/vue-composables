@@ -2,8 +2,8 @@ import { useWs } from "./use-ws";
 
 export const useIm = ({
   url,
-  headers,
-  events: extraEvents,
+  headers = {},
+  events: extraEvents = {},
   heartbeatTime = 5 * 1000,
 } = {}) => {
   const ws = useWs({ url, headers });
