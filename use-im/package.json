@@ -1,12 +1,9 @@
 {
   "name": "use-im",
-  "version": "0.0.2",
-  "description": "",
+  "version": "0.0.3",
+  "description": "use-im",
   "main": "use-im.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "zhaojintian",
   "license": "ISC",
   "dependencies": {
     "mitt": "3.0.0",

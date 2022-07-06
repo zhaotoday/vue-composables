@@ -1,4 +1,4 @@
-import { useWs } from "@/composables/use-ws";
+import { useWs } from "./use-ws";
 
 export const useIm = () => {
   const ws = useWs({ url: "ws://localhost:3002/" });
