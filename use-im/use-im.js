@@ -1,9 +1,14 @@
 import { useWs } from "./use-ws";
 
-export const useIm = () => {
-  const ws = useWs({ url: "ws://localhost:3002/" });
+export const useIm = ({
+  url,
+  headers,
+  events: extraEvents,
+  heartbeatTime = 5 * 1000,
+} = {}) => {
+  const ws = useWs({ url, headers });
 
-  const events = { ...ws.events };
+  const events = { ...extraEvents, ...ws.events };
 
   let heartbeatTimer = null;
 
@@ -13,7 +18,7 @@ export const useIm = () => {
     heartbeatTimer = setInterval(() => {
       ws.heartbeat.reset();
       ws.heartbeat.start();
-    }, 5 * 1000);
+    }, heartbeatTime);
 
     ws.emitter.on(events.pingOk, () => {
       ws.heartbeat.reset();
