@@ -48,8 +48,12 @@ export const useWs = ({ url, headers }) => {
     });
   };
 
-  const reconnect = () => {
+  const close = () => {
     instance.close();
+  };
+
+  const reconnect = () => {
+    close();
     initialize();
   };
 
@@ -91,6 +95,7 @@ export const useWs = ({ url, headers }) => {
     emitter,
     events,
     initialize,
+    close,
     reconnect,
     ready,
     send,

@@ -37,6 +37,7 @@ export const useIm = ({
 
   const destroy = () => {
     clearInterval(heartbeatTimer);
+    ws.close();
     ws.emitter.all.clear();
   };
 
